@@ -1,12 +1,18 @@
 import React from 'react';
 import ApiFacade from "../apiFacade";
+import Swipe from "./swipe";
 
 const UserPage = props => {
     return (
         <div>
             {ApiFacade.getRoles() === "user" ?
                 (
-                    <h1 className="title">User page</h1>
+                    <div>
+                        <h1 className="title">User page</h1>
+
+                        <Swipe/>
+
+                    </div>
                 )
                 :
                 (<h1>You are not a user</h1>)

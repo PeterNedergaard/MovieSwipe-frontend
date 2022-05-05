@@ -40,6 +40,16 @@ function apiFacade() {
 
     }
 
+
+    const getMovies = async() => {
+
+        return await fetch(URL + "/api/info/movies")
+            .then(handleHttpErrors)
+            // .then(res => res.data)
+
+    }
+
+
     const login = (user, password) => {
         const options = makeOptions("POST", true,{username: user, password: password });
         return fetch(URL + "/api/login", options)
@@ -86,7 +96,8 @@ function apiFacade() {
         fetchData,
         getRoles,
         getJokes,
-        getName
+        getName,
+        getMovies
     }
 }
 

@@ -1,0 +1,25 @@
+.swipeContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.dislikeBtn{
+    float: left;
+}
+
+.likeBtn{
+    float: right;
+}
+
+.swipeBtns{
+    width: 70px;
+}
