@@ -12,12 +12,13 @@ const [rooms, setRooms]= useState([])
             const fetch = await apiFacade.getMyRooms();
 
             setRooms(fetch);
-            console.log(rooms)
+            console.log(fetch);
         }
 
         fetchRoom();
 
     }, [])
+
 
     return (
         <div>
