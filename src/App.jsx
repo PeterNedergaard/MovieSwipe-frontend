@@ -83,8 +83,10 @@ function App() {
 
                         <div className="link-container">
                             <Link to="/welcome">Welcome page</Link> |{" "}
-                            <Link to="/userpage">User page</Link> |{" "}
-                            <Link to="/adminpage">Admin page</Link>
+                            <Link to="/userpage">Swipe</Link> |{" "}
+                            <Link to="/roomspage">Rooms</Link> |{" "}
+                            <Link to="/likedmovies">Liked movies</Link>
+
                         </div>
 
                     </nav>

@@ -8,7 +8,7 @@ const UserPage = props => {
             {ApiFacade.getRoles() === "user" ?
                 (
                     <div>
-                        <h1 className="title">User page</h1>
+                        <h1 className="title">Swipe</h1>
 
                         <Swipe/>
 

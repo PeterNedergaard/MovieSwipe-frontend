@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "./Swipe.css"
+import "../swipe.css"
 import apiFacade from "../apiFacade";
 
 const Swipe = props => {
@@ -14,7 +14,6 @@ const Swipe = props => {
             const movies = await apiFacade.getMovies();
 
             setMovieList(movies);
-            console.log(movieList[0]);
         }
 
         fetch();
@@ -29,11 +28,16 @@ const Swipe = props => {
         }
     }
 
-    const decCount = () => {
+    const dislike = () => {
+        apiFacade.addMovieInteraction(count+1,apiFacade.getName(),false);
 
-        if (count > movieList.length) {
-            setCount(count - 1)
-        }
+        incCount();
+    }
+
+    const like = () => {
+        apiFacade.addMovieInteraction(count+1,apiFacade.getName(),true);
+
+        incCount();
     }
 
     const getImg = () => {
@@ -52,18 +56,17 @@ const Swipe = props => {
         <div>
             <div className="swipeContainer">
                 <div>
-                    {/*<img width="300" src="https://m.media-amazon.com/images/M/MV5BMWEwNjhkYzYtNjgzYy00YTY2LThjYWYtYzViMGJkZTI4Y2MyXkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_.jpg" />*/}
                     {getImg()}
                 </div>
 
                 <div className="row btnContainer">
                     <div className="col-4">
-                        <button onClick={decCount} className="btn btn-danger swipeBtns dislikeBtn">Dislike</button>
+                        <button onClick={dislike} className="btn btn-danger swipeBtns dislikeBtn">Dislike</button>
                     </div>
                     <div className="col-4">
                     </div>
                     <div className="col-4">
-                        <button onClick={incCount} className="btn btn-success swipeBtns likeBtn">Like</button>
+                        <button onClick={like} className="btn btn-success swipeBtns likeBtn">Like</button>
                     </div>
                 </div>
             </div>

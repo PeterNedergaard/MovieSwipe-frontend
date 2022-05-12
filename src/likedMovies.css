@@ -1,0 +1,12 @@
+.movieTableContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.movieTable{
+    width: 700px;
+}
+
+.tablePoster{
+    width: 100px;
+}

@@ -10,6 +10,8 @@ import UserPage from "./routes/userPage";
 import AdminPage from "./routes/adminPage";
 import ApiFacade from "./apiFacade";
 import Jokes from "./routes/jokes";
+import Rooms from "./routes/Rooms";
+import LikedMovies from "./routes/LikedMovies";
 
 
 
@@ -22,6 +24,8 @@ render(
                 <Route path="/userpage" element={<UserPage/>}/>
                 <Route path="/adminpage" element={<AdminPage/>}/>
                 <Route path="/jokes" element={<Jokes/>}/>
+                <Route path="/roomspage" element={<Rooms/>}/>
+                <Route path="/likedmovies" element={<LikedMovies/>}/>
             </Route>
         </Routes>
     </BrowserRouter>,

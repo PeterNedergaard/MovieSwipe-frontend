@@ -41,12 +41,32 @@ function apiFacade() {
     }
 
 
+    const getMyRooms = async() => {
+
+        return await fetch(URL + "/api/info/usersrooms/" + getName())
+            .then(handleHttpErrors)
+    }
+
+
+    const getMyMovies = async() => {
+
+        return await fetch(URL + "/api/info/likedmovies/" + getName())
+            .then(handleHttpErrors)
+    }
+
+
     const getMovies = async() => {
 
         return await fetch(URL + "/api/info/movies")
             .then(handleHttpErrors)
-            // .then(res => res.data)
 
+    }
+
+
+    const addMovieInteraction = (movieId, userName, isLiked) => {
+        const options = makeOptions("POST", false,{movieid: movieId, username: userName, isliked: isLiked });
+        return fetch(URL + "/api/info/likeordislike", options)
+            // .then(handleHttpErrors)
     }
 
 
@@ -97,7 +117,10 @@ function apiFacade() {
         getRoles,
         getJokes,
         getName,
-        getMovies
+        getMovies,
+        addMovieInteraction,
+        getMyRooms,
+        getMyMovies
     }
 }
 
