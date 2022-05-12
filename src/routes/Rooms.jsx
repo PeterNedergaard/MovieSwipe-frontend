@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../rooms.css"
+import apiFacade from "../apiFacade";
 
 const Rooms = props => {
+const [rooms, setRooms]= useState([])
 
 
+    useEffect(() => {
+
+        const fetchRoom = async() => {
+            const fetch = await apiFacade.getMyRooms();
+
+            setRooms(fetch);
+            console.log(rooms)
+        }
+
+        fetchRoom();
+
+    }, [])
 
     return (
         <div>
@@ -19,16 +33,19 @@ const Rooms = props => {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Room name 1</td>
-                        <td>Room code 1</td>
-                        <td>Room owner 1</td>
-                    </tr>
-                    <tr>
-                        <td>Room name 2</td>
-                        <td>Room code 2</td>
-                        <td>Room owner 2</td>
-                    </tr>
+                        {rooms.map((room,index)=> {
+                            return(
+                                <tr key={index}>
+                                    <td>{room.roomName}</td>
+                                    <td>{room.roomCode}</td>
+                                    <td>{room.ownerId}</td>
+                                </tr>
+                            )
+                            }
+
+                        )}
+
+
                     </tbody>
                 </table>
             </div>
