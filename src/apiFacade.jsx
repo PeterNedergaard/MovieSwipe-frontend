@@ -45,10 +45,20 @@ function apiFacade() {
         const options = makeOptions("POST", false,{username: getName(), roomname: roomName });
         return fetch(URL + "/api/info/createroom", options)
     }
+
+
     const joinRoom = async (roomCode) => {
         const options = makeOptions("POST", false, {username: getName(), roomcode: roomCode});
         return fetch(URL + "/api/info/addtoroom", options)
     }
+
+
+    const getUsersByRoomCode = async(roomCode) => {
+        return await fetch(URL + "/api/info/usersbyroom/" + roomCode)
+            .then(handleHttpErrors)
+    }
+
+
     const getMyRooms = async() => {
 
         return await fetch(URL + "/api/info/usersrooms/" + getName())
@@ -130,7 +140,8 @@ function apiFacade() {
         getMyRooms,
         getMyMovies,
         createRoom,
-        joinRoom
+        joinRoom,
+        getUsersByRoomCode
     }
 }
 
