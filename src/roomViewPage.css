@@ -5,10 +5,9 @@
     margin-top: 30px;
 }
 
-.membersTableContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: #61dafb;
+.membersTable{
+   width: 200px;
+
+
 }
+

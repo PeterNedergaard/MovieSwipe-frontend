@@ -80,7 +80,10 @@ function apiFacade() {
 
     }
 
-
+    const getLikedMoviesByRoomCode= async (roomCode)=>{
+        return await fetch(URL + "/api/info/roomlikes/"+ roomCode)
+            .then(handleHttpErrors)
+    }
     const addMovieInteraction = (movieId, userName, isLiked) => {
         const options = makeOptions("POST", false,{movieid: movieId, username: userName, isliked: isLiked });
         return fetch(URL + "/api/info/likeordislike", options)
@@ -141,7 +144,8 @@ function apiFacade() {
         getMyMovies,
         createRoom,
         joinRoom,
-        getUsersByRoomCode
+        getUsersByRoomCode,
+        getLikedMoviesByRoomCode
     }
 }
 
