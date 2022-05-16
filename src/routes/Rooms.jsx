@@ -7,6 +7,9 @@ const Rooms = props => {
     const [rooms, setRooms] = useState([]);
     const [roomNameInput, setRoomNameInput] = useState("");
     const [update, setUpdate] = useState();
+    const [roomCodeInput, setRoomCodeInput]=useState("");
+
+
 
 
     useEffect(() => {
@@ -24,8 +27,9 @@ const Rooms = props => {
 
 
 
-    const joinRoom = (roomCode) => {
-
+    const joinRoom = async() => {
+    await  apiFacade.joinRoom(roomCodeInput)
+        setUpdate(!update);
     }
 
     const createRoom = async() => {
@@ -68,8 +72,8 @@ const Rooms = props => {
             <div className="btnContainerRooms">
 
                 <div className="joinContainer">
-                    <input type="text" placeholder="Enter room code"/>
-                    <button className="btn btn-primary roomBtns">Join room</button>
+                    <input  onChange={event => setRoomCodeInput(event.target.value)} type="text" placeholder="Enter room code"/>
+                    <button onClick={joinRoom} className="btn btn-primary roomBtns">Join room</button>
                 </div>
 
                 <div className="createContainer">
