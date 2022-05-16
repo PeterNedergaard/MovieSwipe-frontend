@@ -3,7 +3,10 @@ import "../rooms.css"
 import apiFacade from "../apiFacade";
 
 const Rooms = props => {
-const [rooms, setRooms]= useState([])
+
+    const [rooms, setRooms] = useState([]);
+    const [roomNameInput, setRoomNameInput] = useState("");
+    const [update, setUpdate] = useState();
 
 
     useEffect(() => {
@@ -17,7 +20,18 @@ const [rooms, setRooms]= useState([])
 
         fetchRoom();
 
-    }, [])
+    }, [update])
+
+
+
+    const joinRoom = (roomCode) => {
+
+    }
+
+    const createRoom = async() => {
+        await apiFacade.createRoom(roomNameInput);
+        setUpdate(!update);
+    }
 
 
     return (
@@ -39,7 +53,7 @@ const [rooms, setRooms]= useState([])
                                 <tr key={index}>
                                     <td>{room.roomName}</td>
                                     <td>{room.roomCode}</td>
-                                    <td>{room.ownerId}</td>
+                                    <td>{room.ownerName}</td>
                                 </tr>
                             )
                             }
@@ -54,13 +68,13 @@ const [rooms, setRooms]= useState([])
             <div className="btnContainerRooms">
 
                 <div className="joinContainer">
-                    <button className="btn btn-primary roomBtns">Join room</button>
                     <input type="text" placeholder="Enter room code"/>
+                    <button className="btn btn-primary roomBtns">Join room</button>
                 </div>
 
                 <div className="createContainer">
-                    <button className="btn btn-primary roomBtns">Create room</button>
-                    <input type="text" placeholder="Enter room name"/>
+                    <input onChange={event => setRoomNameInput(event.target.value)} type="text" placeholder="Enter room name"/>
+                    <button onClick={createRoom} className="btn btn-primary roomBtns">Create room</button>
                 </div>
 
             </div>
