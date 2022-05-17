@@ -16,18 +16,16 @@ const RoomViewPage = props => {
             const fetch = await facade.getUsersByRoomCode(props.roomCode);
 
             setUsers(fetch);
-
-
         }
+
         const fetchMovies = async () => {
             const fetch = await facade.getLikedMoviesByRoomCode(props.roomCode)
+
             setCommonMovies(fetch)
-            console.log(commonMovies)
         }
 
         fetchUsers();
         fetchMovies();
-
 
     }, [])
 
@@ -40,8 +38,8 @@ const RoomViewPage = props => {
             { toggleView ?
                 (
                 <div>
-                    <button className="btn btn-lg btn-info" onClick={toggle}>Swipe on room</button>
-                    <RoomSwipe />
+                    <button className="btn btn-lg btn-info" onClick={toggle}>Back to room</button>
+                    <RoomSwipe roomCode={props.roomCode} />
                 </div>
                 )
                 :

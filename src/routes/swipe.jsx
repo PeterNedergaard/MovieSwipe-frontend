@@ -4,13 +4,12 @@ import apiFacade from "../apiFacade";
 
 const Swipe = props => {
 
-    const [movieList,setMovieList] = useState([]);
+    const [movieList, setMovieList] = useState([]);
     const [count, setCount] = useState(0);
 
 
     useEffect(() => {
 
-        if (props.list == null){
         const fetch = async () => {
             const movies = await apiFacade.getMovies();
 
@@ -18,14 +17,8 @@ const Swipe = props => {
         }
 
         fetch();
-        } else {
-            const fetch = async () => {
-            const roomsMovies = await apiFacade.getRoomMovies();
-                setMovieList(roomsMovies);
-        }
 
     }, [])
-
 
 
     const incCount = () => {
@@ -35,13 +28,13 @@ const Swipe = props => {
     }
 
     const dislike = () => {
-        apiFacade.addMovieInteraction(count+1,apiFacade.getName(),false);
+        apiFacade.addMovieInteraction(count + 1, apiFacade.getName(), false);
 
         incCount();
     }
 
     const like = () => {
-        apiFacade.addMovieInteraction(count+1,apiFacade.getName(),true);
+        apiFacade.addMovieInteraction(count + 1, apiFacade.getName(), true);
 
         incCount();
     }

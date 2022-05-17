@@ -23,7 +23,6 @@ const Rooms = props => {
             const fetch = await apiFacade.getMyRooms();
 
             setRooms(fetch);
-            console.log(fetch);
         }
 
         fetchRoom();
