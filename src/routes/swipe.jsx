@@ -10,6 +10,7 @@ const Swipe = props => {
 
     useEffect(() => {
 
+        if (props.list == null){
         const fetch = async () => {
             const movies = await apiFacade.getMovies();
 
@@ -17,6 +18,11 @@ const Swipe = props => {
         }
 
         fetch();
+        } else {
+            const fetch = async () => {
+            const roomsMovies = await apiFacade.getRoomMovies();
+                setMovieList(roomsMovies);
+        }
 
     }, [])
 

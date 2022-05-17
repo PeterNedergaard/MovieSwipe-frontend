@@ -40,6 +40,11 @@ function apiFacade() {
 
     }
 
+    const getRoomMovies = async(roomCode) => {
+        const options = makeOptions("GET", false,{username: getName(), roomcode: roomCode });
+        return fetch(URL + "/api/info/", options)
+    }
+
 
     const createRoom = async(roomName) => {
         const options = makeOptions("POST", false,{username: getName(), roomname: roomName });

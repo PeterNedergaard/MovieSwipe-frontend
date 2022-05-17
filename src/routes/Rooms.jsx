@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import "../rooms.css"
 import apiFacade from "../apiFacade";
-import roomViewPage from "./roomViewPage";
 import RoomViewPage from "./roomViewPage";
-import ApiFacade from "../apiFacade";
-import Swipe from "./swipe";
+
 
 const Rooms = props => {
 

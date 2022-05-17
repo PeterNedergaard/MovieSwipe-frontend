@@ -7,7 +7,18 @@
 
 .membersTable{
    width: 200px;
+    float: left;
+}
 
+.roomsPageTable{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
 
+.centerContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
