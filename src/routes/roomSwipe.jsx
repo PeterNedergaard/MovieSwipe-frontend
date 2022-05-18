@@ -30,6 +30,7 @@ const roomSwipe = props => {
     }
 
     const dislike = () => {
+        console.log(movieList)
         apiFacade.addMovieInteraction(count + 1, apiFacade.getName(), false);
 
         incCount();
